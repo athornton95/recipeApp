@@ -35,8 +35,13 @@ router.post('/register', async (req, res) => {
         if(bcrypt.compareSync(req.body.password, foundUser.password)){
           req.session.logged = true;
           req.session.usersDbId = foundUser._id;
+        //   console.log(foundUser._id);
+        //   console.log(req.sessionID);
+        //   req.sessionID = foundUser._id;
+        //   console.log(req.sessionID);
+        // req.session.cookie.usersDbId = foundUser._id;
           console.log(req.session, 'successful login!')
-          res.redirect('/authors')
+          res.redirect('/users')
         } else {
           req.session.message = 'username or password is incorrect';
           res.redirect('/auth/login')

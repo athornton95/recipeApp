@@ -12,5 +12,12 @@
     <%userOnTheTemplate.recipes.forEach((recipes) => {%>
     <%= recipes %>
     <%})%>
+        <%if(logged === true && userOnTheTemplate._id.toString() === sessionId.toString()){%>
+            <a href = "/users/<%=userOnTheTemplate._id%>/edit">Edit User Info</a>
+            <form action = "/users/<%=userOnTheTemplate._id%>?_method=DELETE" method = "POST">
+            <button type = "submit">Delete User</button>
+            </form>
+        <%}%>
 </body>
 </html>
+
