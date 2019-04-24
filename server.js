@@ -35,7 +35,7 @@ app.use('/auth', authController);
 app.use('/users', userController);
 app.use('/recipes', recipeController);
 
-
+app.use(express.static('public'));
 
 app.listen(port, () => {
     console.log(`app is listening on port: ${port}`);

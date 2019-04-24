@@ -10,7 +10,7 @@
     <h1>Show Page</h1>
     <%=userOnTheTemplate.username%>
     <%userOnTheTemplate.recipes.forEach((recipes) => {%>
-    <%= recipes %>
+    <%= recipes.title %>
     <%})%>
         <%if(logged === true && userOnTheTemplate._id.toString() === sessionId.toString()){%>
             <a href = "/users/<%=userOnTheTemplate._id%>/edit">Edit User Info</a>

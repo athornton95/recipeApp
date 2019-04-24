@@ -20,14 +20,16 @@ router.get('/', (req, res) => {
 router.get('/:id', async (req, res) => {
     console.log(req.session);
     try{
-        const foundUser = await User.findById(req.params.id);
+        const foundUser = await User.findById(req.params.id)
             // console.log(foundUser._id);
             // console.log(req.session);
             // console.log(req.sessionID);
-            console.log(foundUser._id);
-            console.log(req.session.usersDbId);
-            console.log(req.session.logged);
-            console.log(foundUser);
+            // console.log(foundUser._id);
+            // console.log(req.session.usersDbId);
+            // console.log(req.session.logged);
+            // console.log(foundUser);
+            .populate('recipes')
+            .exec();
         res.render('users/show.ejs', {
             userOnTheTemplate: foundUser,
             sessionId: req.session.usersDbId,
