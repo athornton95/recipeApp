@@ -11,7 +11,8 @@ router.get('/', (req, res) => {
             console.log(err);
         } else {
             res.render('users/index.ejs', {
-                usersOnTheTemplate: usersOnTheDatabase
+                usersOnTheTemplate: usersOnTheDatabase,
+                
             });
         }
     })
