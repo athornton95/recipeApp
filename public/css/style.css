@@ -10,8 +10,14 @@ h1 {
     font-family: cursive;
 }
 
+div.title h1 {
+    border: 3px solid rgba(255, 255, 255, 0.116);
+    border-radius: 50px;
+    padding: 30px;
+}
+
 h1.login-heading {
-    margin-top: 50px;
+    margin-top: 20px;
     font-size: 70px;
 }
 
@@ -19,9 +25,7 @@ h1.login-heading {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    margin-top: 60px;
-    
-
+    margin-top: 60px;    
 }
 
 .auth-form-container {
