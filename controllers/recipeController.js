@@ -25,39 +25,12 @@
 
  router.get('/:id', async (req, res) => {
      try {
-
                const recipeFromTheDatabase = await Recipe.findById(req.params.id);
                 const user = await User.findOne({"recipes": req.params.id})
                 res.render('recipes/show.ejs', {
                     recipeOnTheTemplate: recipeFromTheDatabase,
                     user: user
                 })
-        
-
-
-
-
-
-        //  const recipeOwner = await User.findById(req.params.id);
-        //  const recipeId = await Recipe.findOne({
-        //      _id: {
-        //          $in: recipeOwner.recipes 
-        //      }
-        //  })
-        //  const thisRecipe = await Recipe.findById(recipeId);
-        //  res.render('recipes/show.ejs', {
-        //      user: recipeOwner,
-        //      recipe: thisRecipe.title
-        //  })
-        // const recipeOnTheTemplate = await Recipe.findById(req.params.id);
-        // const recipeOwner = await User.findOne({
-        //     _id: {
-        //         $in: recipeOwner.recipes
-        //     }
-        // })
-        // res.render('recipes/show.ejs', {
-
-        // });
      } catch(err){
          console.log(err);
          res.send(err);
@@ -77,14 +50,29 @@
     }
 })
 
+router.get('/:id/edit', async (req, res) => {
+    try{
+        const foundRecipe = await Recipe.findById(req.params.id)
+        const foundUser = await User.findOne({'recipes': req.params.id})
+        console.log(foundRecipe);
+        res.render('recipes/edit.ejs', {
+            recipeOnTheTemplate: foundRecipe,
+            userOnTheTemplate: foundUser
+        })
+    }catch(err){
+        res.send(err)
+    }
+})
 
- 
+router.put('/:id', async (req, res) => {
+    try{
+        const updatedRecipe = await Recipe.findByIdAndUpdate(req.params.id, req.body, {new: true})
+        res.redirect('/recipes')
 
-
-
-
-
-
+    }catch(err){
+        res.send(err)
+    }
+})
 
 
 
