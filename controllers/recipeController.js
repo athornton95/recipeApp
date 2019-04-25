@@ -4,19 +4,41 @@
  const User = require('../models/User');
  
  //INDEX route:
- router.get('/', (req, res) => {
-     Recipe.find({}, (err, recipesOnTheDatabase) => {
-         if(err){
-             console.log(err);
-             res.send(err);
-         } else {
-             res.render('recipes/index.ejs', {
-                recipesOnTheTemplate: recipesOnTheDatabase,
-                logged: req.session.logged
-             })
-         }
-     })
- })
+//  router.get('/', async (req, res) => {
+    //  try{
+    //     const recipesOnTheDatabase = await Recipe.find({});
+    //     const foundUser = await Recipe.findOne()
+    //  }catch(err){
+    //      console.log(err);
+    //      res.send(err);
+    //  }
+//      Recipe.find({}, (err, recipesOnTheDatabase) => {
+//          if(err){
+//              console.log(err);
+//              res.send(err);
+//          } else {
+//              console.log(recipesOnTheDatabase.user);
+//              res.render('recipes/index.ejs', {
+//                 recipesOnTheTemplate: recipesOnTheDatabase,
+//                 logged: req.session.logged
+//              })
+//          }
+//      })
+//  })
+router.get('/',  (req, res) => {
+    Recipe.find({},(err, recipesOnTheDatabase) => {
+        if(err){
+            console.log(err);
+            res.send(err);
+        } else {
+            console.log(recipesOnTheDatabase[0].user)
+            console.log(recipesOnTheDatabase)
+            res.render('recipes/index.ejs', {
+               recipesOnTheTemplate: recipesOnTheDatabase
+            })
+        }
+    })
+})
  
  //NEW route:
  router.get('/new', (req, res) => {
@@ -31,12 +53,13 @@
                const recipeFromTheDatabase = await Recipe.findById(req.params.id);
                 const user = await User.findOne({"recipes": req.params.id})
                 
- 
+                console.log(user)
+                console.log()
                 res.render('recipes/show.ejs', {
                     recipeOnTheTemplate: recipeFromTheDatabase,
                     user: user,
                     logged: req.session.logged,
-                    userOnTheTemplate: user,
+                    // userOnTheTemplate: user,
                     sessionId: req.session.usersDbId
                 })
      } catch(err){
@@ -48,11 +71,19 @@
  //CREATE route
  router.post('/', async (req, res) => {
     try{
-       const newRecipe = await Recipe.create(req.body);
-       const userFound = await User.findById(req.session.usersDbId);
-       userFound.recipes.push(newRecipe._id);
-       const savedUser = await userFound.save();
-       res.redirect('/recipes')
+        req.body.user = req.session.username
+        console.log(req.body)
+        const newRecipe = await Recipe.create(req.body);
+        // newRecipe.user = req.session.username;
+        // const savedRecipe = await newRecipe.save()
+        console.log(req.session.username)
+        const foundUser = await User.findOne({'username': req.session.username})
+        
+        console.log(foundUser)
+        foundUser.recipes.push(newRecipe)
+        const savedUser = await foundUser.save()
+        console.log(req.session.usersDbId, 'text comment')
+        res.redirect('/recipes')
     }catch(err){
         console.log(err);
         res.send(err);
