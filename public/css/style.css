@@ -1,0 +1,16 @@
+body {
+    background-color: gray;
+}
+
+.flex-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 200px;
+
+}
+
+.auth-form-container {
+    width: 400px;
+    padding: 25px;
+    background-color: rgba(0, 0, 0, 0.103);
+}
