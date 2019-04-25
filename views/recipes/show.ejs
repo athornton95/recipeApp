@@ -9,5 +9,13 @@
 <body>
     <%=recipeOnTheTemplate.title%>
     <%=user.username%>
+    <% if(logged === true && userOnTheTemplate._id.toString() === sessionId.toString()){%>
+        <form action="/recipes/<%=recipeOnTheTemplate._id%>/edit" method="GET">
+            <button type="submit">Edit</button>
+        </form>
+        <form action="/recipes/<%=recipeOnTheTemplate._id%>?_method=DELETE" method="POST">
+            <button type="submit">Delete</button>
+        </form>
+    <%}%>
 </body>
 </html>
