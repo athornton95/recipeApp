@@ -8,7 +8,8 @@ const bcrypt = require('bcryptjs');
 router.get('/login', (req, res) => {
   console.log(req.session)
     res.render('login.ejs', {
-        message: req.session.message
+        message: req.session.message,
+        logged: req.session.logged
     })
 });
 

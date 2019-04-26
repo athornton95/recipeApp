@@ -82,7 +82,8 @@ router.get('/:id/edit', async (req, res) => {
         res.render('recipes/edit.ejs', {
             recipeOnTheTemplate: foundRecipe,
             userOnTheTemplate: foundUser,
-            username: req.session.username
+            username: req.session.username,
+            logged: req.session.logged
         })
     }catch(err){
         res.send(err)

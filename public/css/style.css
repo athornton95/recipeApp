@@ -83,7 +83,7 @@
 }
 
 body {
-    background-color: #DDD5DC
+    background-color: rgb(228, 219, 211);
 }
 
 body.login {
@@ -102,6 +102,19 @@ div.title h1 {
     border: 3px solid rgba(255, 255, 255, 0.116);
     border-radius: 50px;
     padding: 30px;
+}
+
+div.nav {
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+#dropdownMenuButton {
+    height: 100%;
+}
+
+.btn-secondary {
+    background-color: rgba(0, 0, 0, 0);
+    border: none;
 }
 
 h1.login-heading {
