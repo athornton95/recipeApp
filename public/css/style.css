@@ -204,3 +204,24 @@ a.nav-link:hover {
     border-color: #B28040;
 }
 
+.flex-container .editForm {
+    width: 60%;
+    
+}
+
+.editForm button {
+    margin: 10px;
+    display: flex;
+    border-style: none;
+    background-color: #B28040;
+    border-radius: 2px;
+    color: white;
+    text-align: center;
+    margin-top: -20px;
+}
+
+.editInput {
+    height: 300px;
+    width: 100%;
+    
+}
