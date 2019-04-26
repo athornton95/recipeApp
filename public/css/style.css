@@ -54,6 +54,7 @@ a.nav-link:hover {
     background-color: rgba(0, 0, 0, 0.403);
 }
 
+
 .matt h2 {
     margin-top: 25px;
     text-align: center;
@@ -70,4 +71,55 @@ a.nav-link:hover {
 
 
 
+
+
+
+
+.adam .recipeIndexHeading {
+    
+    font-size: 50px;
+    padding: 20px;
+    color: black;
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.adam .recipeIndexFlex {
+    width: 600px;
+    background-color: rgba(0, 0, 0, 0.2);
+    padding: 0px;
+}
+
+.adam .recipeIndexFlex:hover {
+    color: #608568;
+}
+
+.adam .recipeIndexFlex a {
+    padding: 5px;
+    text-decoration: none;
+}
+
+.adam .media:hover {
+    background-color: #608568;
+}
+
+.adam .recipeIndexFlex h5 {
+    color: black;
+    padding-top: 10px;
+}
+
+.adam .recipeIndexFlex p {
+    color: black;
+    
+}
+
+.adam .recipeIndexFlex img {
+    width: 100px;
+    height: 100px;
+    border: 3px solid #B28040;
+    border-radius: 50%;
+}
+
+.adam div.title h1 {
+    border-color: #B28040;
+}
 
