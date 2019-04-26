@@ -4,27 +4,7 @@
  const User = require('../models/User');
  
  //INDEX route:
-//  router.get('/', async (req, res) => {
-    //  try{
-    //     const recipesOnTheDatabase = await Recipe.find({});
-    //     const foundUser = await Recipe.findOne()
-    //  }catch(err){
-    //      console.log(err);
-    //      res.send(err);
-    //  }
-//      Recipe.find({}, (err, recipesOnTheDatabase) => {
-//          if(err){
-//              console.log(err);
-//              res.send(err);
-//          } else {
-//              console.log(recipesOnTheDatabase.user);
-//              res.render('recipes/index.ejs', {
-//                 recipesOnTheTemplate: recipesOnTheDatabase,
-//                 logged: req.session.logged
-//              })
-//          }
-//      })
-//  })
+
 router.get('/',  (req, res) => {
     Recipe.find({},(err, recipesOnTheDatabase) => {
         if(err){
@@ -32,9 +12,11 @@ router.get('/',  (req, res) => {
             res.send(err);
         } else {
             console.log(recipesOnTheDatabase[0].user)
-            console.log(recipesOnTheDatabase)
+            
             res.render('recipes/index.ejs', {
-               recipesOnTheTemplate: recipesOnTheDatabase
+               recipesOnTheTemplate: recipesOnTheDatabase,
+               logged: req.session.logged,
+               username: req.session.username
             })
         }
     })
@@ -42,7 +24,12 @@ router.get('/',  (req, res) => {
  
  //NEW route:
  router.get('/new', (req, res) => {
-     res.render('recipes/new.ejs', {
+     
+    const categories = ['Breakfast', 'Lunch', 'Snacks', 'Dinner', 'Drinks'];
+    res.render('recipes/new.ejs', {
+        logged: req.session.logged,
+        username: req.session.username,
+        categories: categories
      });
  })
 
@@ -60,7 +47,8 @@ router.get('/',  (req, res) => {
                     user: user,
                     logged: req.session.logged,
                     // userOnTheTemplate: user,
-                    sessionId: req.session.usersDbId
+                    sessionId: req.session.usersDbId,
+                    username: req.session.username
                 })
      } catch(err){
          console.log(err);
@@ -98,7 +86,9 @@ router.get('/:id/edit', async (req, res) => {
         console.log(foundRecipe);
         res.render('recipes/edit.ejs', {
             recipeOnTheTemplate: foundRecipe,
-            userOnTheTemplate: foundUser
+            userOnTheTemplate: foundUser,
+            username: req.session.username,
+            logged: req.session.logged
         })
     }catch(err){
         res.send(err)

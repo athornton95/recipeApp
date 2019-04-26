@@ -6,7 +6,10 @@ const userSchema = new mongoose.Schema({
     password: {type: String, required: true},
     recipes: [{type: mongoose.Schema.Types.ObjectId,
                 ref: 'Recipe'
-            }]
+            }],
+    location: String,
+    interests: [String],
+    favoriteDish: String
 })
 
 

@@ -1,0 +1,82 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/style.css">
+    <title>SAVR</title>
+</head>
+
+<body>
+
+    <%if (logged){%>
+        
+        <div class="nav">
+            <div class="nav-item">
+                <form action="/recipes" method="GET">
+                <button class="nav-link active" href="/recipes"><img class="nav-img" src="https://files.slack.com/files-pri/T0351JZQ0-FJ7FXUGS0/home.png"></button>
+                </form>
+            </div>
+            <div><p class='nav-p'>Hello, <%=username%></p></div>
+            <div class="nav-item" class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Dropdown button
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="#">Breakfast</a>
+                <a class="dropdown-item" href="#">Lunch</a>
+                <a class="dropdown-item" href="#">Snacks</a>
+                <a class="dropdown-item" href="#">Dinner</a>
+                <a class="dropdown-item" href="#">Desserts</a>
+                <a class="dropdown-item" href="#">Drinks</a>
+                <a class="dropdown-item" href="/recipes">All Recipes</a>
+            </div>
+            </div>
+
+            <div>
+                <form action="/recipes/new" method="GET">
+                <button class="nav-link" type="submit">Add Recipe</button>
+                </form>
+            </div>
+
+            <div>
+                <form action="auth/logout" method="GET">
+                <div > <button class="nav-link logout" type="submit">Logout</button></div>
+                </form>
+            </div>
+        </div>
+
+    <%} else {%>
+
+        <div class="nav">
+            <div class="nav-item">
+                <form action="/recipes" method="GET">
+                <button class="nav-link active" href="/recipes">Home</button>
+                </form>
+            </div>
+            <div><p>Hello, <%=userOnTheTemplate.username%></p></div>
+            <div class="nav-item" class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Dropdown button
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="#">Breakfast</a>
+                <a class="dropdown-item" href="#">Lunch</a>
+                <a class="dropdown-item" href="#">Snacks</a>
+                <a class="dropdown-item" href="#">Dinner</a>
+                <a class="dropdown-item" href="#">Desserts</a>
+                <a class="dropdown-item" href="#">Drinks</a>
+                <a class="dropdown-item" href="/recipes">All Recipes</a>
+            </div>
+            </div>
+            <div class="nav-item">
+                <form action="/auth/login" method="GET">
+                <button class="nav-link">Login/Signup</button>
+                </form>
+            </div>
+
+        </div>
+
+    <%}%>

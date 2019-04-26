@@ -1,10 +1,14 @@
+* {
+    font-family: 'Montserrat', sans-serif;
+}
+
 .alex {
     display: flex;
     flex-direction: column;
     justify-content: center;
     flex-wrap: wrap;
-    margin-top: 60px;  
-    margin-bottom: 60px;  
+    margin-top: 30px;  
+    margin-bottom: 30px;  
     text-align: center;
     /* margin: auto; */
     /* max-width: 600px; */
@@ -14,30 +18,36 @@
     max-width: 600px;
     margin: auto;
     background-color: rgba(255,255,255,.7);
-    padding: 100px;
+    padding: 30px 100px 100px 100px;
     border-radius: 5px;
 }
 
 .alex h2 {
-    font-family: 'Times New Roman', Times, serif;
+    
     color: #608568;
     font-size: 48px;
+    
 }
 
 .alex h2:after {
         position: absolute;
         left: 0;
-        top: 32%;
+        top: 35%;
         height: 2px;
         background:black;
         content: "";
         width: 100%;
         display: block;
         position: relative;
+        
+}
+
+.alex h2::after {
+    margin-top: 5px;
 }
 
 .alex p {
-    font-family: 'Times New Roman', Times, serif;
+    font-family: 'Montserrat', sans-serif;
     font-size: 24px;
     color: black;
     margin-top: 20px;
@@ -47,7 +57,7 @@
     margin-bottom: 30px;
     color: #DDD5DC;
     font-style: italic;
-    font-family: 'Times New Roman', Times, serif;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .alex .editButtons {
@@ -78,9 +88,12 @@
     float: right;
 }
 
+.alex img {
+    width: 400px;
+}
 
 body {
-    background-color: #DDD5DC
+    background-color: rgb(228, 219, 211);
 }
 
 body.login {
@@ -92,13 +105,56 @@ h1 {
     text-align: center;
     color: white;
     background-color: rgba(0, 0, 0, 0.6);
-    font-family: cursive;
+    
 }
 
 div.title h1 {
     border: 3px solid rgba(255, 255, 255, 0.116);
     border-radius: 50px;
     padding: 30px;
+}
+
+div.nav {
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.nav-p {
+    position: relative;
+    top: 9px;
+    color: #608568;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bolder;
+    margin-right: 75px;
+}
+
+.nav-link.active {
+    background-color: rgba(0, 0, 0, 0);
+    border: none;
+    
+}
+
+.nav-img {
+    height: 22px;
+}
+
+button.nav-link {
+    background-color: rgba(0, 0, 0, 0);
+    border: none;
+    color: white;
+}
+
+
+#dropdownMenuButton {
+    height: 100%;
+}
+
+.btn-secondary {
+    background-color: rgba(0, 0, 0, 0);
+    border: none;
+}
+
+.btn-secondary:hover {
+    background-color: rgba(0, 0, 0, 0.2);
 }
 
 h1.login-heading {
@@ -135,11 +191,15 @@ a.nav-link:hover {
     background-color: rgba(0, 0, 0, 0.403);
 }
 
+.matt .card-body a {
+    background-color: #B28040;
+    border: none;
+}
 
 .matt h2 {
     margin-top: 25px;
     text-align: center;
-    font-family: cursive;
+    
 }
 
 .matt .mattidedit {
@@ -147,26 +207,27 @@ a.nav-link:hover {
 }
 
 .matt .card {
-    margin-bottom: 50px;
-}
-
-
-
-
-
-
-
-.adam .recipeIndexHeading {
+    margin: 0 5px 10px 5px;
     
-    font-size: 50px;
-    padding: 20px;
-    color: black;
-    background-color: rgba(0, 0, 0, 0.2);
 }
+
+.matt .edit-flex {
+    display: flex;
+    justify-content: center;
+}
+
+.matt .edit-flex div {
+    padding: 10px;
+}
+
+.matt .card-img-top {
+    height: 40%;
+}
+
 
 .adam .recipeIndexFlex {
     width: 600px;
-    background-color: rgba(0, 0, 0, 0.2);
+    margin: -25px;
     padding: 0px;
 }
 
@@ -204,3 +265,31 @@ a.nav-link:hover {
     border-color: #B28040;
 }
 
+.adam div.media {
+    margin: 10px;
+    padding: 5px;
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+}
+
+.flex-container .editForm {
+    width: 60%;
+    
+}
+
+.editForm button {
+    margin: 10px;
+    display: flex;
+    border-style: none;
+    background-color: #B28040;
+    border-radius: 2px;
+    color: white;
+    text-align: center;
+    margin-top: -20px;
+}
+
+.editInput {
+    height: 300px;
+    width: 100%;
+    
+}
