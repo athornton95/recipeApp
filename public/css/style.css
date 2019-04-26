@@ -1,3 +1,7 @@
+* {
+    font-family: 'Montserrat', sans-serif;
+}
+
 .alex {
     display: flex;
     flex-direction: column;
@@ -14,30 +18,36 @@
     max-width: 600px;
     margin: auto;
     background-color: rgba(255,255,255,.7);
-    padding: 100px;
+    padding: 30px 100px 100px 100px;
     border-radius: 5px;
 }
 
 .alex h2 {
-    font-family: 'Times New Roman', Times, serif;
+    
     color: #608568;
     font-size: 48px;
+    
 }
 
 .alex h2:after {
         position: absolute;
         left: 0;
-        top: 32%;
+        top: 35%;
         height: 2px;
         background:black;
         content: "";
         width: 100%;
         display: block;
         position: relative;
+        
+}
+
+.alex h2::after {
+    margin-top: 5px;
 }
 
 .alex p {
-    font-family: 'Times New Roman', Times, serif;
+    font-family: 'Montserrat', sans-serif;
     font-size: 24px;
     color: black;
     margin-top: 20px;
@@ -47,7 +57,7 @@
     margin-bottom: 30px;
     color: #DDD5DC;
     font-style: italic;
-    font-family: 'Times New Roman', Times, serif;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .alex .editButtons {
@@ -95,7 +105,7 @@ h1 {
     text-align: center;
     color: white;
     background-color: rgba(0, 0, 0, 0.6);
-    font-family: cursive;
+    
 }
 
 div.title h1 {
@@ -181,11 +191,15 @@ a.nav-link:hover {
     background-color: rgba(0, 0, 0, 0.403);
 }
 
+.matt .card-body a {
+    background-color: #B28040;
+    border: none;
+}
 
 .matt h2 {
     margin-top: 25px;
     text-align: center;
-    font-family: cursive;
+    
 }
 
 .matt .mattidedit {
@@ -195,6 +209,15 @@ a.nav-link:hover {
 .matt .card {
     margin: 0 5px 10px 5px;
     
+}
+
+.matt .edit-flex {
+    display: flex;
+    justify-content: center;
+}
+
+.matt .edit-flex div {
+    padding: 10px;
 }
 
 .matt .card-img-top {

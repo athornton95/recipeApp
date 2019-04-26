@@ -2,18 +2,12 @@
 <%- include ../partials/header.ejs %>
 
 <div class="matt">
-    <h2>Recipes by <%=userOnTheTemplate.username%></h2><br/>
-        <div class="mattidedit">
-        <%if(logged === true && userOnTheTemplate._id.toString() === sessionId.toString()){%>
-            <a href = "/users/<%=userOnTheTemplate._id%>/edit">Edit User Info</a>
-            <form action = "/users/<%=userOnTheTemplate._id%>?_method=DELETE" method = "POST">
-                <button type = "submit">Delete User</button>
-            </form>
-        <%}%>
-        </div>
+    <div class="alex">
+        <h2><%=userOnTheTemplate.username%>'s Recipes</h2><br/>
+    </div>
     <div class="flex-container">
         <%userOnTheTemplate.recipes.forEach((recipes) => {%>
-        <div class="card" style="width: 25rem;">
+        <div class="card" style="width: 15rem;">
             <img src="<%=recipes.img%>" class="card-img-top">
             <div class="card-body">
                 <h5 class="card-title"><%= recipes.title %></h5>
@@ -22,6 +16,15 @@
             </div>
         </div>
     <%})%>
+    </div>
+    <div class="mattidedit edit-flex">
+        <%if(logged === true && userOnTheTemplate._id.toString() === sessionId.toString()){%>
+            
+            <div><a href = "/users/<%=userOnTheTemplate._id%>/edit">Edit User Info</a></div>
+            <div><form action = "/users/<%=userOnTheTemplate._id%>?_method=DELETE" method = "POST">
+                <button type = "submit">Delete User</button>
+            </form></div>
+        <%}%>
     </div>
 
 

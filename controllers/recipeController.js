@@ -24,9 +24,12 @@ router.get('/',  (req, res) => {
  
  //NEW route:
  router.get('/new', (req, res) => {
-     res.render('recipes/new.ejs', {
+     
+    const categories = ['Breakfast', 'Lunch', 'Snacks', 'Dinner', 'Drinks'];
+    res.render('recipes/new.ejs', {
         logged: req.session.logged,
-        username: req.session.username
+        username: req.session.username,
+        categories: categories
      });
  })
 

@@ -6,7 +6,7 @@
     <h2><%=recipeOnTheTemplate.title%></h2><br/>
     <img src="<%=recipeOnTheTemplate.img%>"><br/>
     <p><%=recipeOnTheTemplate.body%></p><br/>
-    <small>by: <%=recipeOnTheTemplate.user%></small><br/>
+    <a href="/users/<%=user._id%>"><small>by: <%=recipeOnTheTemplate.user%></small></a><br/>
     <div class = "editButtons">
     <% if(logged === true && user._id.toString() === sessionId.toString()){%>
         <form action="/recipes/<%=recipeOnTheTemplate._id%>/edit" method="GET">
