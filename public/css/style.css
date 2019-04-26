@@ -1,3 +1,84 @@
+.alex {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 60px;  
+    margin-bottom: 60px;  
+    text-align: center;
+    /* margin: auto; */
+    /* max-width: 600px; */
+}
+
+.alex .content {
+    max-width: 600px;
+    margin: auto;
+    background-color: rgba(255,255,255,.7);
+    padding: 100px;
+    border-radius: 5px;
+}
+
+.alex h2 {
+    font-family: 'Times New Roman', Times, serif;
+    color: #608568;
+    font-size: 48px;
+}
+
+.alex h2:after {
+        position: absolute;
+        left: 0;
+        top: 32%;
+        height: 2px;
+        background:black;
+        content: "";
+        width: 100%;
+        display: block;
+        position: relative;
+}
+
+.alex p {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 24px;
+    color: black;
+    margin-top: 20px;
+}
+
+.alex small {
+    margin-bottom: 30px;
+    color: #DDD5DC;
+    font-style: italic;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.alex .editButtons {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.alex #editButton {
+    margin: 10px;
+    display: flex;
+    border-style: none;
+    background-color: #B28040;
+    color: white;
+    border-radius: 2px;
+    text-align: center;
+    float: left;
+
+}
+.alex #deleteButton {
+    margin: 10px;
+    display: flex;
+    border-style: none;
+    background-color: #B28040;
+    border-radius: 2px;
+    color: white;
+    text-align: center;
+    float: right;
+}
+
+
 body {
     background-color: #DDD5DC
 }
