@@ -108,6 +108,32 @@ div.nav {
     background-color: rgba(0, 0, 0, 0.2);
 }
 
+.nav-p {
+    position: relative;
+    top: 9px;
+    color: #608568;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bolder;
+    margin-right: 75px;
+}
+
+.nav-link.active {
+    background-color: rgba(0, 0, 0, 0);
+    border: none;
+    
+}
+
+.nav-img {
+    height: 22px;
+}
+
+button.nav-link {
+    background-color: rgba(0, 0, 0, 0);
+    border: none;
+    color: white;
+}
+
+
 #dropdownMenuButton {
     height: 100%;
 }
@@ -115,6 +141,10 @@ div.nav {
 .btn-secondary {
     background-color: rgba(0, 0, 0, 0);
     border: none;
+}
+
+.btn-secondary:hover {
+    background-color: rgba(0, 0, 0, 0.2);
 }
 
 h1.login-heading {

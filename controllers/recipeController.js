@@ -25,6 +25,8 @@ router.get('/',  (req, res) => {
  //NEW route:
  router.get('/new', (req, res) => {
      res.render('recipes/new.ejs', {
+        logged: req.session.logged,
+        username: req.session.username
      });
  })
 
