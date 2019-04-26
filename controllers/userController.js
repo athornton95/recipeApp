@@ -69,8 +69,9 @@ router.delete('/:id', async (req, res) => {
             _id: {
                 $in: deletedUser.recipes
             }
-        })
-        res.redirect('/users')
+        });
+        req.session.logged = false;
+        res.redirect('/recipes')
     }catch(err){
         console.log(err);
         res.send(err);

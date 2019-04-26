@@ -4,27 +4,7 @@
  const User = require('../models/User');
  
  //INDEX route:
-//  router.get('/', async (req, res) => {
-    //  try{
-    //     const recipesOnTheDatabase = await Recipe.find({});
-    //     const foundUser = await Recipe.findOne()
-    //  }catch(err){
-    //      console.log(err);
-    //      res.send(err);
-    //  }
-//      Recipe.find({}, (err, recipesOnTheDatabase) => {
-//          if(err){
-//              console.log(err);
-//              res.send(err);
-//          } else {
-//              console.log(recipesOnTheDatabase.user);
-//              res.render('recipes/index.ejs', {
-//                 recipesOnTheTemplate: recipesOnTheDatabase,
-//                 logged: req.session.logged
-//              })
-//          }
-//      })
-//  })
+
 router.get('/',  (req, res) => {
     Recipe.find({},(err, recipesOnTheDatabase) => {
         if(err){
@@ -32,9 +12,11 @@ router.get('/',  (req, res) => {
             res.send(err);
         } else {
             console.log(recipesOnTheDatabase[0].user)
-            console.log(recipesOnTheDatabase)
+            
             res.render('recipes/index.ejs', {
-               recipesOnTheTemplate: recipesOnTheDatabase
+               recipesOnTheTemplate: recipesOnTheDatabase,
+               logged: req.session.logged,
+               username: req.session.username
             })
         }
     })
