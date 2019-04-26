@@ -55,6 +55,25 @@ a.nav-link:hover {
 }
 
 
+.matt h2 {
+    margin-top: 25px;
+    text-align: center;
+    font-family: cursive;
+}
+
+.matt .mattidedit {
+    text-align: center;
+}
+
+.matt .card {
+    margin-bottom: 50px;
+}
+
+
+
+
+
+
 
 .adam .recipeIndexHeading {
     
@@ -103,3 +122,4 @@ a.nav-link:hover {
 .adam div.title h1 {
     border-color: #B28040;
 }
+
