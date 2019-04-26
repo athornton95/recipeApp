@@ -42,7 +42,8 @@ router.get('/',  (req, res) => {
                     user: user,
                     logged: req.session.logged,
                     // userOnTheTemplate: user,
-                    sessionId: req.session.usersDbId
+                    sessionId: req.session.usersDbId,
+                    username: req.session.username
                 })
      } catch(err){
          console.log(err);
@@ -80,7 +81,8 @@ router.get('/:id/edit', async (req, res) => {
         console.log(foundRecipe);
         res.render('recipes/edit.ejs', {
             recipeOnTheTemplate: foundRecipe,
-            userOnTheTemplate: foundUser
+            userOnTheTemplate: foundUser,
+            username: req.session.username
         })
     }catch(err){
         res.send(err)
