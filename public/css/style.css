@@ -53,3 +53,21 @@ a.nav-link {
 a.nav-link:hover {
     background-color: rgba(0, 0, 0, 0.403);
 }
+
+.matt h2 {
+    margin-top: 25px;
+    text-align: center;
+    font-family: cursive;
+}
+
+.matt .mattidedit {
+    text-align: center;
+}
+
+.matt .card {
+    margin-bottom: 50px;
+}
+
+
+
+
