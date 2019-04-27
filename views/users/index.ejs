@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 
 <%- include ../partials/header.ejs %>
-    <ul>
+    <ul class="userList">
     <%usersOnTheTemplate.forEach((users) => {%>
     <li><a href = "users/<%=users._id%>"><%=users.username%></a></li>
     <%})%>

@@ -21,9 +21,7 @@
         <%if(logged === true && userOnTheTemplate._id.toString() === sessionId.toString()){%>
             
             <div><a href = "/users/<%=userOnTheTemplate._id%>/edit">Edit User Info</a></div>
-            <div><form action = "/users/<%=userOnTheTemplate._id%>?_method=DELETE" method = "POST">
-                <button type = "submit">Delete User</button>
-            </form></div>
+            
         <%}%>
     </div>
 
