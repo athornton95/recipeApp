@@ -13,8 +13,12 @@
             <h4>Image</h4><input type = "text" name = "img" value="<%=recipeOnTheTemplate.img%>" class="form-control" id="exampleInputPassword1">
         </div>
         <div class="form-group">
-            <h4>Body</h4><textarea class="editInput" value="<%=recipeOnTheTemplate.body%>" rows="30" cols="100" name = "body" class="form-control" id="exampleInputPassword1"><%=recipeOnTheTemplate.body%></textarea>
+            <h4>Ingredients</h4><textarea class="editInput ingredientArea" value="<%=recipeOnTheTemplate.ingredients%>" rows="30" cols="100" name = "body" class="form-control" id="exampleInputPassword1"><%=recipeOnTheTemplate.ingredients%></textarea>
         </div>
+        <div class="form-group">
+            <h4>Instructions</h4><textarea class="editInput" value="<%=recipeOnTheTemplate.body%>" rows="30" cols="100" name = "body" class="form-control" id="exampleInputPassword1"><%=recipeOnTheTemplate.body%></textarea>
+        </div>
+        
         <div class="flex-container">
         <button type="submit" class="btn btn-primary">Submit</button>
         </div>
