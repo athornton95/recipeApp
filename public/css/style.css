@@ -16,7 +16,7 @@
 
 .alex .content {
     max-width: 600px;
-    margin: auto;
+    margin: 50px auto;
     background-color: rgba(255,255,255,.7);
     padding: 30px 100px 100px 100px;
     border-radius: 5px;
@@ -26,24 +26,13 @@
     
     color: #608568;
     font-size: 48px;
-    
+    margin-top: 50px;
+    border-bottom: 2px solid black;
+    padding-bottom: 10px;
 }
 
-.alex h2:after {
-        position: absolute;
-        left: 0;
-        top: 35%;
-        height: 2px;
-        background:black;
-        content: "";
-        width: 100%;
-        display: block;
-        position: relative;
-        
-}
-
-.alex h2::after {
-    margin-top: 5px;
+.matt div.alex {
+    margin-top: 50px;
 }
 
 .alex p {
@@ -115,7 +104,11 @@ div.title h1 {
 }
 
 div.nav {
-    background-color: rgba(0, 0, 0, 0.2);
+    background-color: #B6AFA8;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1;
 }
 
 .nav-p {
@@ -143,6 +136,9 @@ button.nav-link {
     color: white;
 }
 
+.login .nav {
+    background-color: rgba(0, 0, 0, 0.5);
+}
 
 #dropdownMenuButton {
     height: 100%;
@@ -155,6 +151,10 @@ button.nav-link {
 
 .btn-secondary:hover {
     background-color: rgba(0, 0, 0, 0.2);
+}
+
+.userList {
+    margin-top: 50px;
 }
 
 h1.login-heading {
@@ -292,4 +292,27 @@ a.nav-link:hover {
     height: 300px;
     width: 100%;
     
+}
+
+.profileItems span {
+    color: #608568;
+    padding: 5px;
+    font-weight: normal;
+
+}
+
+.profileItems h3 {
+    color: gray;
+    font-weight: bolder;
+}
+
+.profileItems {
+    background-color: white;
+    padding: 25px;
+    border-radius: 5px;
+    margin-top: -35px;
+}
+
+.ingredientArea {
+    height: 100px;
 }

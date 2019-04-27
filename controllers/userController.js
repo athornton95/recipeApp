@@ -47,7 +47,8 @@ router.get('/:id/edit', async (req, res) => {
         res.render('users/edit.ejs', {
             userOnTheTemplate: foundUser,
             username: req.session.username, 
-            logged: req.session.logged
+            logged: req.session.logged,
+            sessionId: req.session.usersDbId
         })
     } catch(err) {
         res.send(err);
@@ -56,8 +57,15 @@ router.get('/:id/edit', async (req, res) => {
 
 router.put('/:id', async (req, res) => {
     try{
-        const updatedUser = await User.findByIdAndUpdate(req.params.id, req.body, {new: true});
-        res.redirect('/users');
+        const updatedUser = await User.findByIdAndUpdate(req.params.id, req.body, {new: true})
+        .populate('recipes')
+        .exec();
+    res.render('users/show.ejs', {
+        userOnTheTemplate: updatedUser,
+        sessionId: req.session.usersDbId,
+        logged: req.session.logged,
+        username: req.session.username
+    });
     } catch(err){
         console.log(err);
         res.send(err);
