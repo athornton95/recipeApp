@@ -20,6 +20,18 @@ router.post('/register', async (req, res) => {
     userDbEntry.username = req.body.username;
     userDbEntry.password = passwordHash;
     try {
+        const foundUsers = await User.find({});
+        
+        foundUsers.forEach((user) => {
+          if(userDbEntry.username === user.username){
+            req.session.message = "User name not available";
+            res.render('login.ejs', {
+              message: req.session.message,
+              logged: req.session.logged
+            })
+        }
+        })
+
         const createdUser = await User.create(userDbEntry);
         req.session.logged = true;
         req.session.usersDbId = createdUser._id;
