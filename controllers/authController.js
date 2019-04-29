@@ -14,23 +14,35 @@ router.get('/login', (req, res) => {
 });
 
 router.post('/register', async (req, res) => {
-    const password = req.body.password;
-    const passwordHash = bcrypt.hashSync(password, bcrypt.genSaltSync(10));
-    const userDbEntry = {};
-    userDbEntry.username = req.body.username;
-    userDbEntry.password = passwordHash;
-    try {
-        const createdUser = await User.create(userDbEntry);
-        req.session.logged = true;
-        req.session.usersDbId = createdUser._id;
-        req.session.username = createdUser.username;
-        console.log(createdUser);
-        res.redirect('/recipes');
-    } catch(err){
-        console.log(err)
-        res.send(err)
-    } 
-  });
+  const password = req.body.password;
+  const passwordHash = bcrypt.hashSync(password, bcrypt.genSaltSync(10));
+  const userDbEntry = {};
+  userDbEntry.username = req.body.username;
+  userDbEntry.password = passwordHash;
+  try {
+      const foundUsers = await User.find({});
+      
+      foundUsers.forEach((user) => {
+        if(userDbEntry.username === user.username){
+          req.session.message = "User name not available";
+          res.render('login.ejs', {
+            message: req.session.message,
+            logged: req.session.logged
+          })
+      }
+      })
+
+      const createdUser = await User.create(userDbEntry);
+      req.session.logged = true;
+      req.session.usersDbId = createdUser._id;
+      req.session.username = createdUser.username;
+      console.log(createdUser);
+      res.redirect('/recipes');
+  } catch(err){
+      console.log(err)
+      res.send(err)
+  } 
+});
   
   router.post('/login', async (req, res) => {
     try{
