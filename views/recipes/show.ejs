@@ -22,11 +22,14 @@
     </div>
     <h3 class = "comments">Comments:</h3><br/>
     <form action="/recipes/<%=recipeOnTheTemplate._id%>" method = "POST">
-        <textarea class="editInput"  rows="10" cols="100" name = "body" type = "text" class="form-control" id="exampleInputPassword1"></textarea>
-        <button class = ".btn" type="submit">Add Comment</button>
+        <textarea class="postComment"  rows="10" cols="100" name = "body" type = "text" class="form-control" id="exampleInputPassword1"></textarea>
+        <button class = ".btn-primary" type="submit">Add Comment</button>
     </form>
     <%commentsOnTheTemplate.forEach((comment) => {%>
     <p><%=comment.body%></p>
+    <form action = "/recipes/<%=recipeOnTheTemplate._id%>/<%=comment._id%>?_method=DELETE" method = "POST">
+        <button class = ".btn-primary" type="submit">Delete Comment</button>
+    </form>
     <%})%>
     </div>
 </div>
