@@ -6,12 +6,16 @@
  //INDEX route:
 
 router.get('/',  (req, res) => {
-    Recipe.find({},(err, recipesOnTheDatabase) => {
+    const query = {};
+    if(req.query.category){query.category = req.query.category};
+    console.log(query);
+
+    Recipe.find(query,(err, recipesOnTheDatabase) => {
         if(err){
             console.log(err);
             res.send(err);
         } else {
-            console.log(recipesOnTheDatabase[0].user)
+            console.log(recipesOnTheDatabase)
             
             res.render('recipes/index.ejs', {
                recipesOnTheTemplate: recipesOnTheDatabase,
@@ -25,7 +29,7 @@ router.get('/',  (req, res) => {
  //NEW route:
  router.get('/new', (req, res) => {
      
-    const categories = ['Breakfast', 'Lunch', 'Snacks', 'Dinner', 'Dessert', 'Drinks'];
+    const categories = ['breakfast', 'lunch', 'snacks', 'dinner', 'dessert', 'drinks'];
     res.render('recipes/new.ejs', {
         logged: req.session.logged,
         username: req.session.username,
