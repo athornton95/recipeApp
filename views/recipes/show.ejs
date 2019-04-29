@@ -4,9 +4,10 @@
 <div class = "alex">
     <div class = "content">
     <h2><%=recipeOnTheTemplate.title%></h2><br/>
-    <img src="<%=recipeOnTheTemplate.img%>"><br/>
-    <p><%=recipeOnTheTemplate.category%></p><br/>
+    <img src="<%=recipeOnTheTemplate.img%>"><br/><br/>
+    <h4>Ingredients:</h4>
     <p><%=recipeOnTheTemplate.ingredients%></p><br/>
+    <h4>Directions:</h4>
     <p><%=recipeOnTheTemplate.body%></p><br/>
     <a href="/users/<%=user._id%>"><small>by: <%=recipeOnTheTemplate.user%></small></a><br/>
     <div class = "editButtons">
@@ -19,6 +20,14 @@
         </form>
     <%}%>
     </div>
+    <h3 class = "comments">Comments:</h3><br/>
+    <form action="/recipes/<%=recipeOnTheTemplate._id%>" method = "POST">
+        <textarea class="editInput"  rows="10" cols="100" name = "body" type = "text" class="form-control" id="exampleInputPassword1"></textarea>
+        <button class = ".btn" type="submit">Add Comment</button>
+    </form>
+    <%commentsOnTheTemplate.forEach((comment) => {%>
+    <p><%=comment.body%></p>
+    <%})%>
     </div>
 </div>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

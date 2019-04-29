@@ -7,7 +7,9 @@ const recipeSchema = new mongoose.Schema({
     body: {type: String, required: true},
     user: {type: String, required: true},
     category: String,
-    ingredients: String
+    ingredients: String,
+    comments: [{type: mongoose.Schema.Types.ObjectId,
+        ref: 'Comment'}]
 })
 
 

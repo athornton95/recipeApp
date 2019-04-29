@@ -2,6 +2,11 @@
     font-family: 'Montserrat', sans-serif;
 }
 
+.btn:focus {
+    outline: none !important;
+}
+
+
 .alex {
     display: flex;
     flex-direction: column;
@@ -37,9 +42,13 @@
 
 .alex p {
     font-family: 'Montserrat', sans-serif;
-    font-size: 24px;
+    font-size: 12px;
     color: black;
     margin-top: 20px;
+    white-space: pre-line;
+    white-space: pre-wrap;
+    text-align: left;
+    
 }
 
 .alex small {
@@ -144,17 +153,35 @@ button.nav-link {
     height: 100%;
 }
 
+.btn.active {
+    -webkit-box-shaddow: none;
+    transition: none;
+}
+
+.btn-primary {
+    background-color:  #B28040;
+    border: none;
+}
+
+.btn:hover {
+    background-color:  #608568;
+    color: white;
+}
 .btn-secondary {
     background-color: rgba(0, 0, 0, 0);
     border: none;
 }
 
 .btn-secondary:hover {
-    background-color: rgba(0, 0, 0, 0.2);
+    background-color:#608568;
+    color: white;
 }
-
 .userList {
     margin-top: 50px;
+}
+
+.show>.btn-secondary.dropdown-toggle:focus {
+    box-shadow: none;
 }
 
 h1.login-heading {
@@ -194,6 +221,10 @@ a.nav-link:hover {
 .matt .card-body a {
     background-color: #B28040;
     border: none;
+}
+
+.card-body {
+    min-height: 200px;
 }
 
 .matt h2 {
@@ -290,9 +321,14 @@ a.nav-link:hover {
 
 .editInput {
     height: 300px;
-    width: 100%;
-    
+    width: 100%; 
 }
+
+/* .form-group {
+    white-space: pre-line;
+    white-space: pre-wrap;
+    text-align: left;
+} */
 
 .profileItems span {
     color: #608568;

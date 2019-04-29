@@ -2,6 +2,7 @@
  const router = express.Router();
  const Recipe = require('../models/Recipe');
  const User = require('../models/User');
+ const Comment = require('../models/Comment');
  
  //INDEX route:
 
@@ -15,8 +16,6 @@ router.get('/',  (req, res) => {
             console.log(err);
             res.send(err);
         } else {
-            console.log(recipesOnTheDatabase)
-            
             res.render('recipes/index.ejs', {
                recipesOnTheTemplate: recipesOnTheDatabase,
                logged: req.session.logged,
@@ -43,6 +42,7 @@ router.get('/',  (req, res) => {
      try {
                const recipeFromTheDatabase = await Recipe.findById(req.params.id);
                 const user = await User.findOne({"recipes": req.params.id})
+                const allComments = await Comment.find({'recipe': req.params.id});
                 
                 console.log(user)
                 console.log()
@@ -50,6 +50,7 @@ router.get('/',  (req, res) => {
                     recipeOnTheTemplate: recipeFromTheDatabase,
                     user: user,
                     logged: req.session.logged,
+                    commentsOnTheTemplate: allComments,
                     // userOnTheTemplate: user,
                     sessionId: req.session.usersDbId,
                     username: req.session.username
@@ -64,11 +65,11 @@ router.get('/',  (req, res) => {
  router.post('/', async (req, res) => {
     try{
         req.body.user = req.session.username
-        console.log(req.body)
+        // console.log(req.body)
         const newRecipe = await Recipe.create(req.body);
         // newRecipe.user = req.session.username;
         // const savedRecipe = await newRecipe.save()
-        console.log(req.session.username)
+        // console.log(req.session.username)
         const foundUser = await User.findOne({'username': req.session.username})
         
         console.log(foundUser)
@@ -81,6 +82,34 @@ router.get('/',  (req, res) => {
         res.send(err);
     }
 })
+
+//CREATE comment
+router.post('/:id', async (req, res) => {
+    try{
+        const newComment = await Comment.create(req.body);
+        newComment.user = req.session.usersDbId;
+        newComment.recipe = req.params.id;
+        const savedComment = await newComment.save();
+        const user = await User.findOne({"recipes": req.params.id})
+        const foundRecipe = await Recipe.findById(req.params.id);
+        foundRecipe.comments.push(newComment._id);
+        const savedRecipe = await foundRecipe.save();
+        const allComments = await Comment.find({'recipe': req.params.id});
+        console.log(savedComment);
+        res.render('recipes/show.ejs', {
+            recipeOnTheTemplate: foundRecipe,
+            commentsOnTheTemplate: allComments,
+            user: user,
+            logged: req.session.logged,
+            sessionId: req.session.usersDbId,
+            username: req.session.username
+    })
+    }catch(err){
+        console.log(err);
+        res.send(err);
+    } 
+})
+
 
 //CATEGORY route
 router.get('/category/:type', (req, res) => {

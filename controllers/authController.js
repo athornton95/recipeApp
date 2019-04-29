@@ -37,7 +37,13 @@ router.post('/register', async (req, res) => {
       req.session.usersDbId = createdUser._id;
       req.session.username = createdUser.username;
       console.log(createdUser);
-      res.redirect('/recipes');
+      const foundUser = await User.findById(createdUser._id);
+        res.render('users/edit.ejs', {
+            userOnTheTemplate: foundUser,
+            username: req.session.username, 
+            logged: req.session.logged,
+            sessionId: req.session.usersDbId
+        })
   } catch(err){
       console.log(err)
       res.send(err)

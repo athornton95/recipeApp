@@ -22,7 +22,6 @@
             <img src="<%=recipes.img%>" class="card-img-top">
             <div class="card-body">
                 <h5 class="card-title"><%= recipes.title %></h5>
-                <p class="card-text"><%= recipes.body %></p>
                 <a href="/recipes/<%=recipes._id%>" class="btn btn-primary">View Recipe</a>
             </div>
         </div>
@@ -32,7 +31,7 @@
     <div class="mattidedit edit-flex">
         <%if(logged === true && userOnTheTemplate._id.toString() === sessionId.toString()){%>
             
-            <div><a href = "/users/<%=userOnTheTemplate._id%>/edit">Edit User Info</a></div>
+            <div ><a href = "/users/<%=userOnTheTemplate._id%>/edit" class="btn btn-primary">Edit User Info</a></div>
             
         <%}%>
     </div>
