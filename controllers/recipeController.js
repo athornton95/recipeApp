@@ -25,7 +25,7 @@ router.get('/',  (req, res) => {
  //NEW route:
  router.get('/new', (req, res) => {
      
-    const categories = ['Breakfast', 'Lunch', 'Snacks', 'Dinner', 'Drinks'];
+    const categories = ['Breakfast', 'Lunch', 'Snacks', 'Dinner', 'Dessert', 'Drinks'];
     res.render('recipes/new.ejs', {
         logged: req.session.logged,
         username: req.session.username,
@@ -76,6 +76,11 @@ router.get('/',  (req, res) => {
         console.log(err);
         res.send(err);
     }
+})
+
+//CATEGORY route
+router.get('/category/:type', (req, res) => {
+    console.log(req.params.type);
 })
 
 //EDIT route
