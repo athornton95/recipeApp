@@ -15,12 +15,12 @@
     margin-top: 30px;  
     margin-bottom: 30px;  
     text-align: center;
-    /* margin: auto; */
-    /* max-width: 600px; */
+
 }
 
 .alex .content {
-    max-width: 600px;
+    max-width: 40%;
+    min-width: 400px;
     margin: 50px auto;
     background-color: rgba(255,255,255,.7);
     padding: 30px 100px 100px 100px;
@@ -35,6 +35,23 @@
     border-bottom: 2px solid black;
     padding-bottom: 10px;
 }
+
+button {
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+button:focus {
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+button:active {
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+
 
 .matt div.alex {
     margin-top: 50px;
@@ -182,6 +199,11 @@ button.nav-link {
 
 .show>.btn-secondary.dropdown-toggle:focus {
     box-shadow: none;
+}
+
+.dropdown-item:hover {
+    background-color:  #608568;
+    color: white;
 }
 
 h1.login-heading {
@@ -351,4 +373,9 @@ a.nav-link:hover {
 
 .ingredientArea {
     height: 100px;
+}
+
+.postComment {
+    height: 50px;
+    max-width: 100%;
 }
