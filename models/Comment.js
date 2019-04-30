@@ -5,7 +5,9 @@ const commentSchema = new mongoose.Schema({
     user: {type: mongoose.Schema.Types.ObjectId,
     ref: 'User'},
     recipe: {type: mongoose.Schema.Types.ObjectId,
-    ref: 'Recipe'}
+    ref: 'Recipe'},
+    username: String,
+    date: Date
 })
 
 module.exports = mongoose.model('Comment', commentSchema);

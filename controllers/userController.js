@@ -77,12 +77,18 @@ router.put('/:id', async (req, res) => {
 router.delete('/:id', async (req, res) => {
     try{
         const deletedUser = await User.findByIdAndDelete(req.params.id);
+        console.log(deletedUser);
         const deletedRecipes = await Recipe.deleteMany({
             _id: {
                 $in: deletedUser.recipes,
-                
+
             }
         });
+        // const deletedComments = await Comment.deleteMany({
+        //     _id: {
+        //         $in: deletedRecipes.comments
+        //     }
+        // })
         req.session.logged = false;
         res.redirect('/recipes')
     }catch(err){
