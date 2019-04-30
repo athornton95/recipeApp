@@ -27,7 +27,7 @@ router.get('/',  (req, res) => {
  //NEW route:
  router.get('/new', (req, res) => {
      
-    const categories = ['breakfast', 'lunch', 'snacks', 'dinner', 'dessert', 'drinks'];
+    const categories = ['breakfast', 'lunch', 'snacks', 'dinner', 'desserts', 'drinks'];
     res.render('recipes/new.ejs', {
         logged: req.session.logged,
         username: req.session.username,
@@ -157,7 +157,8 @@ router.delete('/:id/:comment', async (req, res) => {
         user: user,
         logged: req.session.logged,
         sessionId: req.session.usersDbId,
-        username: req.session.username
+        username: req.session.username,
+        userOnTheTemplate: req.session.usersDbId,
     })
 })
 

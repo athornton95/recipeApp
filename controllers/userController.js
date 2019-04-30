@@ -3,7 +3,6 @@ const router = express.Router();
 const User = require('../models/User');
 const Recipe = require('../models/Recipe');
 const Comment = require('../models/Comment');
- 
 
 
 
@@ -16,6 +15,7 @@ router.get('/', (req, res) => {
         } else {
             res.render('users/index.ejs', {
                 usersOnTheTemplate: usersOnTheDatabase,
+                userOnTheTemplate: req.session.usersDbId,
                 logged: req.session.logged,
                 username: req.session.username    
             });
@@ -30,7 +30,8 @@ router.get('/:id', async (req, res) => {
             .populate('recipes')
             .exec();
         res.render('users/show.ejs', {
-            userOnTheTemplate: foundUser,
+            user: foundUser,
+            userOnTheTemplate: req.session.usersDbId,
             sessionId: req.session.usersDbId,
             logged: req.session.logged,
             username: req.session.username
@@ -62,7 +63,8 @@ router.put('/:id', async (req, res) => {
         .populate('recipes')
         .exec();
     res.render('users/show.ejs', {
-        userOnTheTemplate: updatedUser,
+        user: updatedUser,
+        userOnTheTemplate: req.session.usersDbId,
         sessionId: req.session.usersDbId,
         logged: req.session.logged,
         username: req.session.username

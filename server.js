@@ -35,6 +35,13 @@ app.use('/auth', authController);
 app.use('/users', userController);
 app.use('/recipes', recipeController);
 
+app.use((req, res, next) => {
+    if(req.session.usersDbId){
+        res.locals.userOnTheTemplate = req.session.usersDbId
+    }
+    next();
+});
+
 app.use(express.static('public'));
 
 app.listen(port, () => {
