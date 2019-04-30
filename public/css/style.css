@@ -145,12 +145,20 @@ div.nav {
 
 .nav-p {
     position: relative;
-    top: 9px;
+    top: 8px;
     color: #608568;
+    font-size: 16px;
     font-family: 'Montserrat', sans-serif;
     font-weight: bolder;
-    margin-right: 75px;
+    margin-right: 5px;
 }
+
+.nav {
+    justify-content: space-between;
+
+}
+
+
 
 .nav-link.active {
     background-color: rgba(0, 0, 0, 0);
@@ -159,6 +167,16 @@ div.nav {
 
 .nav-img {
     height: 22px;
+}
+
+.flex-nav {
+    display: flex;
+}
+
+.settings {
+    justify-content: right;
+    background-color: red;
+    float: right;
 }
 
 button.nav-link {
@@ -417,9 +435,9 @@ a.nav-link:hover {
     background-color: white;
 }
 
-@media (max-width: 500px) {
+/* @media (max-width: 500px) {
     div.nav {
         flex-direction: column;
         text-align: center;
     }
-}
+} */
