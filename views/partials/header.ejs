@@ -14,15 +14,24 @@
     <%if (logged){%>
         
         <div class="nav">
+        <div class='greeting flex-nav'>
             <div class="nav-item">
                 <form action="/recipes" method="GET">
                 <button class="nav-link active" href="/recipes"><img class="nav-img" src="/images/savrSmall.png"></button>
                 </form>
             </div>
             <div><p class='nav-p'>Hello, <%=username%></p></div>
+            <div>
+                <form action="/users/<%=userOnTheTemplate%>/edit" method="GET">
+                <div > <button class="nav-link logout btn" type="submit">Profile</button></div>
+                </form>
+            </div>
+            </div>
+
+            <div class="flex-nav">
             <div class="nav-item" class="dropdown">
             <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Dropdown button
+                Recipes
             </button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                 <a class="dropdown-item" href="/recipes?category=breakfast">Breakfast</a>
@@ -40,12 +49,17 @@
                 <button class="nav-link btn" type="submit">Add Recipe</button>
                 </form>
             </div>
+            </div>
 
+
+            <div class="flex-nav">
             <div>
                 <form action="/auth/logout" method="GET">
                 <div > <button class="nav-link logout btn" type="submit">Logout</button></div>
                 </form>
             </div>
+            </div>
+            
         </div>
 
     <%} else {%>

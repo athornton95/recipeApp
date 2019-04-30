@@ -19,7 +19,8 @@ router.get('/',  (req, res) => {
             res.render('recipes/index.ejs', {
                recipesOnTheTemplate: recipesOnTheDatabase,
                logged: req.session.logged,
-               username: req.session.username
+               username: req.session.username,
+               userOnTheTemplate: req.session.usersDbId
             })
         }
     })
@@ -32,7 +33,8 @@ router.get('/',  (req, res) => {
     res.render('recipes/new.ejs', {
         logged: req.session.logged,
         username: req.session.username,
-        categories: categories
+        categories: categories,
+        userOnTheTemplate: req.session.usersDbId
      });
  })
 
@@ -59,6 +61,7 @@ router.get('/',  (req, res) => {
                     // userOnTheTemplate: user,
                     sessionId: req.session.usersDbId,
                     username: req.session.username,
+                    userOnTheTemplate: req.session.usersDbId
                 })
      } catch(err){
          console.log(err);
@@ -110,7 +113,8 @@ router.post('/:id', async (req, res) => {
             user: user,
             logged: req.session.logged,
             sessionId: req.session.usersDbId,
-            username: req.session.username
+            username: req.session.username,
+            userOnTheTemplate: req.session.usersDbId
     })
     }catch(err){
         console.log(err);
