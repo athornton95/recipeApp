@@ -10,7 +10,6 @@ const port = 3000;
 const userController = require('./controllers/userController');
 const recipeController = require('./controllers/recipeController');
 const authController = require('./controllers/authController');
-// const commentController = require('./controllers/commentController');
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(methodOverride("_method"));
@@ -35,7 +34,6 @@ app.use(session({
 app.use('/auth', authController);
 app.use('/users', userController);
 app.use('/recipes', recipeController);
-// app.use('/recipes', commentController);
 
 app.use(express.static('public'));
 

@@ -14,7 +14,9 @@
     <%if (logged){%>
         
         <div class="nav">
+
         <div class='greeting flex-nav'>
+
             <div class="nav-item">
                 <form action="/recipes" method="GET">
                 <button class="nav-link active" href="/recipes"><img class="nav-img" src="/images/savrSmall.png"></button>
@@ -26,9 +28,12 @@
                 <div > <button class="nav-link logout btn" type="submit">Profile</button></div>
                 </form>
             </div>
+        
+            <div>
+                <form action="/recipes/new" method="GET">
+                <button class="nav-link btn" type="submit">Add Recipe</button>
+                </form>
             </div>
-
-            <div class="flex-nav">
             <div class="nav-item" class="dropdown">
             <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Recipes
@@ -44,12 +49,7 @@
             </div>
             </div>
 
-            <div>
-                <form action="/recipes/new" method="GET">
-                <button class="nav-link btn" type="submit">Add Recipe</button>
-                </form>
-            </div>
-            </div>
+         </div>
 
 
             <div class="flex-nav">
