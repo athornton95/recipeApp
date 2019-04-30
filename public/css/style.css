@@ -2,6 +2,12 @@
     font-family: 'Montserrat', sans-serif;
 }
 
+body {
+    position: relative;
+    width:100vw;
+    height:100vh;
+}
+
 .btn:focus {
     outline: none !important;
 }
@@ -12,8 +18,7 @@
     flex-direction: column;
     justify-content: center;
     flex-wrap: wrap;
-    margin-top: 30px;  
-    margin-bottom: 30px;  
+    margin-top: 30px;   
     text-align: center;
 
 }
@@ -61,6 +66,12 @@ button:active {
     margin-top: 50px;
 }
 
+.media-body p.mt-0 {
+    color: white !important;
+    font-style: italic;
+}
+
+
 .alex p {
     font-family: 'Montserrat', sans-serif;
     font-size: 12px;
@@ -83,6 +94,8 @@ button:active {
     display: flex;
     justify-content: center;
     margin-top: 30px;
+    padding-bottom: 35px;
+    border-bottom: 2px solid gray;
 }
 
 .alex #editButton {
@@ -96,6 +109,11 @@ button:active {
     float: left;
 
 }
+
+h3.comments {
+    padding-top: 35px;
+}
+
 
 .commentBox {
     display: flex;
@@ -259,13 +277,43 @@ button.nav-link {
     margin-top: 60px;    
 }
 
-.auth-form-container {
+.auth-form-container-left {
     min-width: 400px;
     padding: 25px;
+    color: rgb(228, 219, 211);
+    border-top: 1px solid rgb(228, 219, 211);
+    border-bottom: 1px solid rgb(228, 219, 211);
+    border-left: 1px solid rgb(228, 219, 211);
+    
+}
+
+
+.auth-form-container-right {
+    min-width: 400px;
+    padding: 25px;
+    color: rgb(228, 219, 211);
+    border-top: 1px solid rgb(228, 219, 211);
+    border-bottom: 1px solid rgb(228, 219, 211);
+    border-right: 1px solid rgb(228, 219, 211);
+}
+
+.loginBox {
     background-color: rgba(0, 0, 0, 0.6);
-    color: white;
+    display: flex;
+    padding: 2px;
+    
+}
 
+input#exampleInputEmail1 {
+    background-color: rgb(228, 219, 211) !important;
+}
 
+input#exampleInputPassword1 {
+    background-color: rgb(228, 219, 211) !important;
+}
+
+.form-control:focus{
+    outline: none !important;
 }
 
 ul.nav {
@@ -441,13 +489,75 @@ a.nav-link:hover {
 
 }
 
+.flex-container.comment-body{
+    border-radius: 5px;
+    margin-top: 35px;
+    min-width: 100%;
+}
+
 .comment-body {
     background-color: white;
 }
 
+p.date {
+    margin-top: -25px;
+    color: gray;
+}
 /* @media (max-width: 500px) {
     div.nav {
         flex-direction: column;
         text-align: center;
     }
 } */
+
+footer {
+    text-align: center;
+    background-color:#B6AFA8;
+    bottom: 0;
+}
+
+.hireUs {
+    display: inline-block;
+    padding-bottom: 15px;
+    padding-top: 15px;
+}
+
+#hireus a {
+    text-decoration: none;
+}
+
+a:link {
+    text-decoration: none;
+}
+
+a {
+    color: #608568;
+}
+
+a:hover {
+    color: black;
+}
+
+.copyright {
+    padding-bottom: 20px;
+}
+
+.mattidedit.edit-flex {
+    margin-bottom: 30px;
+}
+
+.footer {
+    position: static;
+    bottom:0;
+    left:0;
+    width:100%;
+}
+
+.stuff {
+    flex: 1 0 auto;
+    min-height: 90vh;
+}
+
+body {
+    min-height: 100%;
+}
