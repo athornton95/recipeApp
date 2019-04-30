@@ -46,6 +46,11 @@ router.get('/',  (req, res) => {
                 
                 // console.log(user)
                 // console.log()
+                // console.log('this is the user whose recipe it is' + user.username);
+                // console.log('this is the username of the logged in user' + req.session.username)
+                // console.log('the commenter is' + allComments[1].user)
+                // console.log('does this match' + req.session.usersDbId)
+
                 res.render('recipes/show.ejs', {
                     recipeOnTheTemplate: recipeFromTheDatabase,
                     user: user,
@@ -53,7 +58,7 @@ router.get('/',  (req, res) => {
                     commentsOnTheTemplate: allComments,
                     // userOnTheTemplate: user,
                     sessionId: req.session.usersDbId,
-                    username: req.session.username
+                    username: req.session.username,
                 })
      } catch(err){
          console.log(err);
@@ -89,12 +94,15 @@ router.post('/:id', async (req, res) => {
         const newComment = await Comment.create(req.body);
         newComment.user = req.session.usersDbId;
         newComment.recipe = req.params.id;
+        newComment.username = req.session.username;
+        newComment.date = new Date();
         const savedComment = await newComment.save();
         const user = await User.findOne({"recipes": req.params.id})
         const foundRecipe = await Recipe.findById(req.params.id);
         foundRecipe.comments.push(newComment._id);
         const savedRecipe = await foundRecipe.save();
         const allComments = await Comment.find({'recipe': req.params.id});
+        
         // console.log(savedComment);
         res.render('recipes/show.ejs', {
             recipeOnTheTemplate: foundRecipe,

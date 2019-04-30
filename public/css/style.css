@@ -74,7 +74,7 @@ button:active {
 
 .alex small {
     margin-bottom: 30px;
-    color: #DDD5DC;
+    color:  #608568;
     font-style: italic;
     font-family: 'Montserrat', sans-serif;
 }
@@ -118,6 +118,8 @@ body {
 body.login {
     background-image: url("https://images.unsplash.com/photo-1495461199391-8c39ab674295?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80");
     background-color: gray;
+    /* background-repeat: no-repeat; */
+    background-size: cover;
 }
 
 h1 {
@@ -210,9 +212,9 @@ button.nav-link {
     color: white;
 }
 
-h1.login-heading {
-    margin-top: 20px;
-    font-size: 70px;
+.login-heading {
+    background-color: rgba(0, 0, 0, 0.6);
+    margin-top: 100px;
 }
 
 .flex-container {
@@ -249,9 +251,9 @@ a.nav-link:hover {
     border: none;
 }
 
-.card-body {
-    min-height: 200px;
-}
+/* .card-body {
+    min-height: 
+} */
 
 .matt h2 {
     margin-top: 25px;
@@ -265,6 +267,7 @@ a.nav-link:hover {
 
 .matt .card {
     margin: 0 5px 10px 5px;
+    height: 350px;
     
 }
 
@@ -278,7 +281,7 @@ a.nav-link:hover {
 }
 
 .matt .card-img-top {
-    height: 40%;
+    height: 60%;
 }
 
 
@@ -382,4 +385,35 @@ a.nav-link:hover {
 .postComment {
     height: 50px;
     max-width: 100%;
+}
+
+.comments-section {
+    width: 80%;
+    margin: 5px auto;
+    border-bottom: 1px solid rgba(178, 129, 64, 0.726);
+    margin-left: 45px;
+    margin-bottom: 15px;
+    
+}
+
+.deleteComment {
+    color: red;
+    background-color: rgba(0, 0, 0, 0);
+    border: none;
+    width: 20%;
+    margin-top: 5px;
+    margin-right: 25px;
+    padding: 5px;
+
+}
+
+.comment-body {
+    background-color: white;
+}
+
+@media (max-width: 500px) {
+    div.nav {
+        flex-direction: column;
+        text-align: center;
+    }
 }

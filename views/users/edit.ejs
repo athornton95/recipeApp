@@ -23,9 +23,9 @@
 
         <div class="flex-container">
         <button type="submit" class="btn btn-primary">Submit</button>
-        
+        </form>
         <%if(logged === true && userOnTheTemplate._id.toString() === sessionId.toString()){%>
-            
+
             <div><form action = "/users/<%=userOnTheTemplate._id%>?_method=DELETE" method = "POST">
                 <button class="btn btn-primary" type = "submit">Delete User</button>
             </form></div>
@@ -35,7 +35,6 @@
 
 
 
-    </form>
     
 </div>
  
