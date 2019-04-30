@@ -84,11 +84,13 @@ router.delete('/:id', async (req, res) => {
 
             }
         });
-        // const deletedComments = await Comment.deleteMany({
-        //     _id: {
-        //         $in: deletedRecipes.comments
-        //     }
-        // })
+
+        const deletedComments = await Comment.deleteMany({
+            user: {
+                $eq: deletedUser._id
+            }
+        })
+
         req.session.logged = false;
         res.redirect('/recipes')
     }catch(err){
