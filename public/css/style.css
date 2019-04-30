@@ -116,7 +116,7 @@ body {
 }
 
 body.login {
-    background-image: url("https://images.unsplash.com/photo-1495461199391-8c39ab674295?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80");
+    background-image: url("/images/cook-background.jpeg");
     background-color: gray;
     /* background-repeat: no-repeat; */
     background-size: cover;
@@ -155,7 +155,6 @@ div.nav {
 .nav-link.active {
     background-color: rgba(0, 0, 0, 0);
     border: none;
-    
 }
 
 .nav-img {
@@ -335,6 +334,13 @@ a.nav-link:hover {
 .flex-container .editForm {
     width: 60%;
     
+}
+
+.flex-container.title {
+    margin-top: 30px;
+    margin-bottom: 10px;
+    padding-bottom: 15px;
+
 }
 
 .editForm button {
