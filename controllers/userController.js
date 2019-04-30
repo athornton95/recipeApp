@@ -9,7 +9,6 @@ const Comment = require('../models/Comment');
 
 
 router.get('/', (req, res) => {
-    console.log(req.session);
     User.find({}, (err, usersOnTheDatabase) => {
         if(err){
             res.send(err);
@@ -25,7 +24,6 @@ router.get('/', (req, res) => {
 })
 
 router.get('/:id', async (req, res) => {
-    console.log(req.session);
     try{
         const foundUser = await User.findById(req.params.id)
 
@@ -47,7 +45,8 @@ router.get('/:id/edit', async (req, res) => {
     try{
         const foundUser = await User.findById(req.params.id);
         res.render('users/edit.ejs', {
-            userOnTheTemplate: foundUser,
+            user: foundUser,
+            userOnTheTemplate: req.session.usersDbId,
             username: req.session.username, 
             logged: req.session.logged,
             sessionId: req.session.usersDbId
@@ -77,7 +76,6 @@ router.put('/:id', async (req, res) => {
 router.delete('/:id', async (req, res) => {
     try{
         const deletedUser = await User.findByIdAndDelete(req.params.id);
-        console.log(deletedUser);
         const deletedRecipes = await Recipe.deleteMany({
             _id: {
                 $in: deletedUser.recipes,

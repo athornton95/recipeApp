@@ -21,10 +21,12 @@
     <%}%>
     </div>
     <h3 class = "comments">Comments:</h3><br/>
+    <div class = "commentBox">
     <form action="/recipes/<%=recipeOnTheTemplate._id%>" method = "POST">
         <textarea class="postComment"  rows="10" cols="100" name = "body" type = "text" class="form-control" id="exampleInputPassword1"></textarea>
-        <button class = ".btn-primary" type="submit">Add Comment</button>
+        <button id = "addCommentButton" class = ".btn-primary" type="submit">Add Comment</button>
     </form>
+    </div>
     <div class="flex-container comment-body">
     <%commentsOnTheTemplate.forEach((comment) => {%>
     <div class="comments-section">
