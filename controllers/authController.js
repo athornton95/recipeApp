@@ -26,7 +26,7 @@ router.post('/register', async (req, res) => {
           req.session.message = "User name not available";
           res.render('login.ejs', {
             message: req.session.message,
-            logged: req.session.logged
+            logged: req.session.logged,
           })
       }
       })
@@ -40,7 +40,7 @@ router.post('/register', async (req, res) => {
             userOnTheTemplate: foundUser,
             username: req.session.username, 
             logged: req.session.logged,
-            sessionId: req.session.usersDbId
+            sessionId: req.session.usersDbId,
         })
   } catch(err){
       console.log(err)
