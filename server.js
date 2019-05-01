@@ -1,3 +1,4 @@
+require('dotenv').config()
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
@@ -5,7 +6,7 @@ const methodOverride = require('method-override');
 const session = require('express-session');
 const MongoDBStore = require('connect-mongodb-session')(session);
 require('./db/db');
-const port = 3000;
+const port = process.env.PORT;
 
 const userController = require('./controllers/userController');
 const recipeController = require('./controllers/recipeController');
